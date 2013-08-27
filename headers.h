@@ -1,0 +1,11 @@
+#pragma once
+#include <windows.h>
+#include <vector>
+#include "gl\glew.h"
+#include "gl\glut.h"
+#include "stdio.h"
+#include <iostream>
+#include "glm\glm.hpp"
+#include "glm\gtc\matrix_transform.hpp"
+#include "glm\gtc\type_ptr.hpp"
+#include "tga.h"
