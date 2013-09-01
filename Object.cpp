@@ -7,6 +7,7 @@ Mesh::Mesh()
 	mTexCoords = NULL;
 	mVertCount = 0;
 	mTexture = 0;
+	mTextured = false;
 }
 
 Mesh::Mesh(Mesh &src)
@@ -16,6 +17,7 @@ Mesh::Mesh(Mesh &src)
 	mTexCoords = new float [src.mVertCount*2];
 	mVertCount = src.mVertCount;
 	mTexture = src.mTexture;
+	mTextured = src.mTextured;
 	for(size_t i = 0;i < src.mVertCount*3;i++)
 	{
 		mVertices[i] = src.mVertices[i];
@@ -37,7 +39,7 @@ Mesh::~Mesh()
 		delete [] mTexCoords;
 }
 
-bool Mesh::load(std::string name)///TODO: SORT THIS MESS OUT... WE'RE PARSING TRIS
+bool Mesh::load(std::string name)//function that parses *.obj files (uses external library to do so)
 {
 	objLoader * temp = new objLoader();
 	if(!temp->load((char *) (name.c_str())))
@@ -101,38 +103,54 @@ size_t Mesh::getVertCount()
 
 void Mesh::setTexture(std::string name)///COPYPASTA ! %-D
 {
-	TGAImg img; //Obojêtnie czy globalnie, czy lokalnie
+	TGAImg img; 
 	if(img.Load((char *) name.c_str())==IMG_OK) 
 	{
-		glGenTextures(1,&mTexture); //Zainicjuj uchwyt tex
-		glBindTexture(GL_TEXTURE_2D,mTexture); //Przetwarzaj uchwyt tex
-		if(img.GetBPP()==24) //Obrazek 24bit
+		mTextured = true;
+		glGenTextures(1,&mTexture);
+		glBindTexture(GL_TEXTURE_2D,mTexture);
+		if(img.GetBPP()==24)
 			glTexImage2D(GL_TEXTURE_2D,0,3,img.GetWidth(),img.GetHeight(),0,GL_RGB,GL_UNSIGNED_BYTE,img.GetImg());
-		else if(img.GetBPP()==32) //Obrazek 32bit
+		else if(img.GetBPP()==32)
 			glTexImage2D(GL_TEXTURE_2D,0,4,img.GetWidth(),img.GetHeight(),0,GL_RGBA,GL_UNSIGNED_BYTE,img.GetImg());
 		else
 		{
-			//Obrazek 16 albo 8 bit, takimi siê nie przejmujemy
+			mTextured = false;
+			printf("[Warning]Texture (\"%s\") is in unsupported format.\n",name.c_str());
 		}
 	}
 	else
 	{
-		//b³¹d
+		printf("[Warning]Texture (\"%s\") cannot be loaded (file loading error).\n",name.c_str());
 	}
 }
 
+void Mesh::fixTexCoords()
+{
+	for(size_t i = 1;i < mVertCount*2;i+=2)
+	{
+		mTexCoords[i] = 1.0f-mTexCoords[i];
+	}
+}
+
+bool Mesh::isTextured()
+{
+	return mTextured;
+}
 
 Object::Object() : mMesh()
 {
-
+	mName = "";
 }
 
-Object::Object(glm::vec3 pos, glm::vec3 rot, std::string modelname,std::string texturename)
+Object::Object(std::string name, glm::vec3 pos, glm::vec3 rot, std::string modelname,std::string texturename)
 {
 	mPosition = pos;
 	mRotation = rot;
 	mMesh.load(modelname);
-	mMesh.setTexture(texturename);
+	if(!texturename.empty())
+		mMesh.setTexture(texturename);
+	mName = name;
 }
 
 Mesh * Object::getMesh()
@@ -168,4 +186,19 @@ void Object::move(glm::vec3 delta)
 void Object::rotate(glm::vec3 delta)
 {
 	mRotation += delta;
+}
+
+void Object::fixTexCoords()
+{
+	mMesh.fixTexCoords();
+}
+
+std::string Object::getName()
+{
+	return mName;
+}
+
+void Object::setName(std::string name)
+{
+	mName = name;
 }

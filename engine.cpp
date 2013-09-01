@@ -1,8 +1,18 @@
 #include "engine.h"
 
-#define instance (*Engine::mSingleton)
+#define instance (*Engine::mSingleton)//so instance is just this thing, it helps us deal with references to singleton in static functions (shortens the code)
 
 Engine * Engine::mSingleton = NULL;
+
+Object * Engine::findObject(std::string name)
+{
+	for(size_t i = 0;i < mRenderQueue.size();i++)
+	{
+		if(!name.compare(mRenderQueue[i]->getName()))
+			return mRenderQueue[i];
+	}
+	return NULL;
+}
 
 Engine & Engine::getSingleton()
 {
@@ -29,7 +39,6 @@ void Engine::displayFrame()
 		instance.mCamera.getPos(),
 		instance.mCamera.getLookAt(),
 		glm::vec3(0.0f,1.0f,0.0f));
-	//V=glm::translate(V,instance.mCamDelta);
 	glm::mat4 P=glm::perspective(50.0f, 1.0f, 1.0f, 50.0f);
 	
 	glMatrixMode(GL_PROJECTION);
@@ -37,7 +46,7 @@ void Engine::displayFrame()
 	for(size_t i = 0;i < instance.mRenderQueue.size();i++)///RENDERING LOOP !
 	{//LOOP.. LOOP.. LOOP.. LOOP.. LOOP.. LOOSE OVERALL ORIENTATION in PROGRAMMING
 		Object * current = instance.mRenderQueue[i];
-		if(current->getMesh()->getVertices() && current->getMesh()->getVertCount())
+		if(current->getMesh()->getVertices() && current->getMesh()->getVertCount())//dude, do you even render ?
 		{		
 			glMatrixMode(GL_MODELVIEW);
 			glm::mat4 M=glm::mat4(1.0f);
@@ -49,13 +58,17 @@ void Engine::displayFrame()
 			if(current->getRot().z != 0.0f)			
 				M=glm::rotate(M,current->getRot().z,glm::vec3(0.0f,0.0f,1.0f));
 			glLoadMatrixf(glm::value_ptr(V*M));
-			if(current->getMesh()->getTexture())
+			if(current->getMesh()->isTextured())
 			{
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);			
 				glBindTexture(GL_TEXTURE_2D,current->getMesh()->getTexture());
+			}
+			else
+			{
+				
 			}
 			glEnableClientState(GL_VERTEX_ARRAY);
 			if(current->getMesh()->getNormals())
@@ -94,6 +107,10 @@ Engine::Engine()
 
 Engine::~Engine()
 {
+	for(size_t i = 0; i < mRenderQueue.size();i++)
+	{
+		delete mRenderQueue[i];
+	}
 	Engine::mSingleton = NULL;
 }
 
@@ -110,7 +127,14 @@ bool Engine::init(int &arg_count,char * arg_val[])
 	glutSpecialUpFunc(Engine::keyUp);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
-	mRenderQueue.push_back(new Object(glm::vec3(0.0f,0.0f,0.0f),glm::vec3(0.0f,0.0f,0.0f),"pac-man.obj","bricks.tga"));
+	mRenderQueue.push_back(new Object("box",glm::vec3(0.0f,0.0f,0.0f),glm::vec3(120.0f,120.0f,0.0f),"box.obj","bricks.tga"));//adding objects to render queue. shouldn't be done that way and it's done like that only for test purposes
+	mRenderQueue.push_back(new Object("pacmate",glm::vec3(-1.0f,2.0f,0.0f),glm::vec3(0.0f,360.0f-45.0f,0.0f),"pac-man.obj","p_tex.tga"));	
+	Object * ptr = findObject("pacmate");
+	if(ptr)
+	{
+		printf("Found object: %s . Messing...\n",ptr->getName().c_str());
+		ptr->fixTexCoords();
+	}
 	return true;
 }
 
@@ -121,41 +145,51 @@ void Engine::run()
 
 void Engine::keyUp(int c, int x, int y)
 {
-	switch (c) 
+	switch(c)
 	{
 		case GLUT_KEY_LEFT: 
-
-		break;
-		
+		{
+			break;
+		}
 		case GLUT_KEY_RIGHT:
-
-		break;
-		
-		case GLUT_KEY_UP: 
+		{
+			break;
+		}
+		case GLUT_KEY_UP:
+		{
 			instance.mCamDelta.z = 0;
-		break;
-		
+			break;
+		}
 		case GLUT_KEY_DOWN:
+		{
 			instance.mCamDelta.z = -0;
-		break;  
+			break;
+		}
 	}
 }
 
-void Engine::keyDown(int c, int x, int y)
+void Engine::keyDown(int c, int x, int y)//activated when key is pressed
 {
 	switch (c) 
 	{
-	case GLUT_KEY_LEFT: 
-		break;
-	case GLUT_KEY_RIGHT:
-		break;
-	case GLUT_KEY_UP: 
-		//speed_x=60;
-		instance.mCamDelta.z = 1;
-		break;
-	case GLUT_KEY_DOWN:
-		//speed_x=-60;
-		instance.mCamDelta.z = -1;
-		break;  
+		case GLUT_KEY_LEFT:
+		{
+			break;
+		}
+		case GLUT_KEY_RIGHT:
+		{
+			break;
+		}
+		case GLUT_KEY_UP :{ // <---- look just how this guy is stressed out; you don't want to be him ! format your code properly (brought to you by the department of joy) 
+			//speed_x=60;
+			instance.mCamDelta.z = 1;
+			break;
+		}
+		case GLUT_KEY_DOWN:
+		{
+			//speed_x=-60;
+			instance.mCamDelta.z = -1;
+			break;
+		}
 	}
 }

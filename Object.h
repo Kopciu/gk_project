@@ -2,16 +2,19 @@
 #include "headers.h"
 #include "external\objLoader.h"
 /*
-Warning ! Important note... while exporting a mesh it must contain triangles only ! Quads are off limits due to implementation of model loading.
+Mesh object for loading meshes from *.obj format and containing verticles and texture coordinates positions and normal vectors. It also loads textures (it's tied with Object class)
+[Warning !] Important note - while exporting a mesh it must contain triangles only ! Quads are off limits due to implementation of model loading.
 */
 class Mesh
 {
 	private:
-		float * mVertices;
-		float * mNormals;
-		float * mTexCoords;
-		GLuint mTexture;
-		size_t mVertCount;
+		//an array of...
+		float * mVertices;//...verticles
+		float * mNormals;//...normal vectors
+		float * mTexCoords;//... texture coordinates.
+		GLuint mTexture;//texture handler
+		size_t mVertCount;//the number of verticles a mesh has
+		bool mTextured;//tells us if texture is loaded
 	public:
 		Mesh();
 		Mesh(Mesh &src);
@@ -23,17 +26,20 @@ class Mesh
 		float * getTexCoords();
 		GLuint getTexture();
 		size_t getVertCount();
+		void fixTexCoords();
+		bool isTextured();
 };
 
 class Object
 {
 	protected:
 		Mesh mMesh;
-		glm::vec3 mPosition;
-		glm::vec3 mRotation;
+		glm::vec3 mPosition;//position
+		glm::vec3 mRotation;//rotation
+		std::string mName;//name
 	public:
 		Object();
-		Object(glm::vec3 pos, glm::vec3 rot, std::string modelname,std::string texturename);
+		Object(std::string name, glm::vec3 pos, glm::vec3 rot, std::string modelname,std::string texturename);
 		Mesh * getMesh();
 		glm::vec3 getPos();
 		glm::vec3 getRot();
@@ -41,4 +47,7 @@ class Object
 		void setRot(glm::vec3 rot);
 		void move(glm::vec3 delta);
 		void rotate(glm::vec3 delta);
+		void fixTexCoords();//blender texture coordinates correction method
+		std::string getName();
+		void setName(std::string name);
 };

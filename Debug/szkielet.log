@@ -1,0 +1,157 @@
+﻿Build started 2013-08-27 15:12:32.
+     1>Project "C:\prywatne\C++\GK_1\szkielet\gk_project\szkielet.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp detailed_cube.cpp engine.cpp external\list.cpp external\objLoader.cpp external\obj_parser.cpp external\string_extra.cpp main_file.cpp Object.cpp tga.cpp
+         tga.cpp
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\tga.cpp(61): warning C4244: '=' : conversion from 'std::streamoff' to 'unsigned long', possible loss of data
+         Object.cpp
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(18): warning C4091: 'typedef ' : ignored on left of 'obj_face' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(27): warning C4091: 'typedef ' : ignored on left of 'obj_sphere' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(36): warning C4091: 'typedef ' : ignored on left of 'obj_plane' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(41): warning C4091: 'typedef ' : ignored on left of 'obj_vector' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(56): warning C4091: 'typedef ' : ignored on left of 'obj_material' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(63): warning C4091: 'typedef ' : ignored on left of 'obj_camera' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(69): warning C4091: 'typedef ' : ignored on left of 'obj_light_point' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(76): warning C4091: 'typedef ' : ignored on left of 'obj_light_disc' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(82): warning C4091: 'typedef ' : ignored on left of 'obj_light_quad' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(105): warning C4091: 'typedef ' : ignored on left of 'obj_growable_scene_data' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(138): warning C4091: 'typedef ' : ignored on left of 'obj_scene_data' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\object.cpp(52): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\object.cpp(63): warning C4018: '<' : signed/unsigned mismatch
+         main_file.cpp
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(18): warning C4091: 'typedef ' : ignored on left of 'obj_face' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(27): warning C4091: 'typedef ' : ignored on left of 'obj_sphere' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(36): warning C4091: 'typedef ' : ignored on left of 'obj_plane' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(41): warning C4091: 'typedef ' : ignored on left of 'obj_vector' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(56): warning C4091: 'typedef ' : ignored on left of 'obj_material' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(63): warning C4091: 'typedef ' : ignored on left of 'obj_camera' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(69): warning C4091: 'typedef ' : ignored on left of 'obj_light_point' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(76): warning C4091: 'typedef ' : ignored on left of 'obj_light_disc' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(82): warning C4091: 'typedef ' : ignored on left of 'obj_light_quad' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(105): warning C4091: 'typedef ' : ignored on left of 'obj_growable_scene_data' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(138): warning C4091: 'typedef ' : ignored on left of 'obj_scene_data' when no variable is declared
+         string_extra.cpp
+         obj_parser.cpp
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(18): warning C4091: 'typedef ' : ignored on left of 'obj_face' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(27): warning C4091: 'typedef ' : ignored on left of 'obj_sphere' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(36): warning C4091: 'typedef ' : ignored on left of 'obj_plane' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(41): warning C4091: 'typedef ' : ignored on left of 'obj_vector' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(56): warning C4091: 'typedef ' : ignored on left of 'obj_material' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(63): warning C4091: 'typedef ' : ignored on left of 'obj_camera' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(69): warning C4091: 'typedef ' : ignored on left of 'obj_light_point' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(76): warning C4091: 'typedef ' : ignored on left of 'obj_light_disc' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(82): warning C4091: 'typedef ' : ignored on left of 'obj_light_quad' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(105): warning C4091: 'typedef ' : ignored on left of 'obj_growable_scene_data' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(138): warning C4091: 'typedef ' : ignored on left of 'obj_scene_data' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(59): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(137): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(165): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(166): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(167): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(174): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(175): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(198): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(209): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(225): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(191) : see declaration of 'strncpy'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(232): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(233): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(234): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(240): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(241): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(242): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(248): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(249): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(250): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(255): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(260): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(265): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(270): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(275): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(284): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(191) : see declaration of 'strncpy'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(308): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(330): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(408): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.cpp(413): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(191) : see declaration of 'strncpy'
+         objLoader.cpp
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(18): warning C4091: 'typedef ' : ignored on left of 'obj_face' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(27): warning C4091: 'typedef ' : ignored on left of 'obj_sphere' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(36): warning C4091: 'typedef ' : ignored on left of 'obj_plane' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(41): warning C4091: 'typedef ' : ignored on left of 'obj_vector' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(56): warning C4091: 'typedef ' : ignored on left of 'obj_material' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(63): warning C4091: 'typedef ' : ignored on left of 'obj_camera' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(69): warning C4091: 'typedef ' : ignored on left of 'obj_light_point' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(76): warning C4091: 'typedef ' : ignored on left of 'obj_light_disc' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(82): warning C4091: 'typedef ' : ignored on left of 'obj_light_quad' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(105): warning C4091: 'typedef ' : ignored on left of 'obj_growable_scene_data' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(138): warning C4091: 'typedef ' : ignored on left of 'obj_scene_data' when no variable is declared
+         list.cpp
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\list.cpp(60): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(191) : see declaration of 'strncpy'
+         engine.cpp
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(18): warning C4091: 'typedef ' : ignored on left of 'obj_face' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(27): warning C4091: 'typedef ' : ignored on left of 'obj_sphere' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(36): warning C4091: 'typedef ' : ignored on left of 'obj_plane' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(41): warning C4091: 'typedef ' : ignored on left of 'obj_vector' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(56): warning C4091: 'typedef ' : ignored on left of 'obj_material' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(63): warning C4091: 'typedef ' : ignored on left of 'obj_camera' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(69): warning C4091: 'typedef ' : ignored on left of 'obj_light_point' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(76): warning C4091: 'typedef ' : ignored on left of 'obj_light_disc' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(82): warning C4091: 'typedef ' : ignored on left of 'obj_light_quad' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(105): warning C4091: 'typedef ' : ignored on left of 'obj_growable_scene_data' when no variable is declared
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(138): warning C4091: 'typedef ' : ignored on left of 'obj_scene_data' when no variable is declared
+         detailed_cube.cpp
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\detailed_cube.cpp(15): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\detailed_cube.cpp(22): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\detailed_cube.cpp(23): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\detailed_cube.cpp(25): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\prywatne\c++\gk_1\szkielet\gk_project\detailed_cube.cpp(39): warning C4305: '=' : truncation from 'double' to 'float'
+         Camera.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\szkielet.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug\szkielet.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Debug\szkielet.lib" /MACHINE:X86 /SAFESEH OPENGL32.LIB GLU32.LIB glut32.lib glew32.lib
+          Debug\Camera.obj
+         Debug\detailed_cube.obj
+         Debug\engine.obj
+         Debug\list.obj
+         Debug\objLoader.obj
+         Debug\obj_parser.obj
+         Debug\string_extra.obj
+         Debug\main_file.obj
+         Debug\Object.obj
+         Debug\tga.obj
+     1>Camera.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+         szkielet.vcxproj -> C:\prywatne\C++\GK_1\szkielet\gk_project\Debug\szkielet.exe
+     1>Done Building Project "C:\prywatne\C++\GK_1\szkielet\gk_project\szkielet.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.06
