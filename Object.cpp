@@ -168,6 +168,13 @@ glm::vec3 Object::getRot()
 	return mRotation;
 }
 
+glm::vec3 Object::dropDelta()
+{
+	glm::vec3 temp = mDelta;
+	mDelta = glm::vec3(0.0f,0.0f,0.0f);
+	return temp;
+}
+
 void Object::setPos(glm::vec3 pos)
 {
 	mPosition = pos;
@@ -181,6 +188,11 @@ void Object::setRot(glm::vec3 rot)
 void Object::move(glm::vec3 delta)
 {
 	mPosition += delta;
+}
+
+void Object::translate(glm::vec3 delta)
+{
+	mDelta += delta;
 }
 
 void Object::rotate(glm::vec3 delta)

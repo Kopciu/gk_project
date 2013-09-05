@@ -12,7 +12,7 @@ class Engine
 		static void nextFrame();
 		static void keyUp(int c, int x, int y);
 		static void keyDown(int c, int x, int y);//these four functions are static because their addresses are passed as arguments in some GLUT functions. Cannot be worked around since C++ doesn't support delegate mechanism
-		glm::vec3 mCamDelta;
+		glm::vec3 mDelta;
 		Camera mCamera;//camera object
 		int mLastTime;//timestamp of last frame
 		Object * findObject(std::string name);//finding object by name in rendering queue

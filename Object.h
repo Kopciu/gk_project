@@ -36,6 +36,7 @@ class Object
 		Mesh mMesh;
 		glm::vec3 mPosition;//position
 		glm::vec3 mRotation;//rotation
+		glm::vec3 mDelta;//model local axis position change
 		std::string mName;//name
 	public:
 		Object();
@@ -43,9 +44,11 @@ class Object
 		Mesh * getMesh();
 		glm::vec3 getPos();
 		glm::vec3 getRot();
+		glm::vec3 dropDelta();
 		void setPos(glm::vec3 pos);
 		void setRot(glm::vec3 rot);
-		void move(glm::vec3 delta);
+		void move(glm::vec3 delta);//move uses global axis
+		void translate(glm::vec3 delta);//translate uses model-space axis
 		void rotate(glm::vec3 delta);
 		void fixTexCoords();//blender texture coordinates correction method
 		std::string getName();
