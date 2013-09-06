@@ -5,6 +5,8 @@
 Mesh object for loading meshes from *.obj format and containing verticles and texture coordinates positions and normal vectors. It also loads textures (it's tied with Object class)
 [Warning !] Important note - while exporting a mesh it must contain triangles only ! Quads are off limits due to implementation of model loading.
 */
+
+
 class Mesh
 {
 	private:
@@ -13,6 +15,7 @@ class Mesh
 		float * mNormals;//...normal vectors
 		float * mTexCoords;//... texture coordinates.
 		GLuint mTexture;//texture handler
+		Material mMaterial;
 		size_t mVertCount;//the number of verticles a mesh has
 		bool mTextured;//tells us if texture is loaded
 	public:
@@ -24,6 +27,7 @@ class Mesh
 		float * getVertices();
 		float * getNormals();
 		float * getTexCoords();
+		Material * getMaterial();
 		GLuint getTexture();
 		size_t getVertCount();
 		void fixTexCoords();

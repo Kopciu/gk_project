@@ -43,6 +43,12 @@ void Engine::displayFrame()
 	
 	glMatrixMode(GL_PROJECTION);
 	glLoadMatrixf(glm::value_ptr(P));
+	//LIGHTS SECTION
+	glMatrixMode(GL_MODELVIEW);
+	glLoadMatrixf(glm::value_ptr(V));
+	//float light[] = {1.0f,1.0f,1.0f,0.0f};
+
+	//LIGHTS SECTION END
 	for(size_t i = 0;i < instance.mRenderQueue.size();i++)///RENDERING LOOP !
 	{//LOOP.. LOOP.. LOOP.. LOOP.. LOOP.. LOOSE OVERALL ORIENTATION in PROGRAMMING
 		Object * current = instance.mRenderQueue[i];
@@ -56,10 +62,23 @@ void Engine::displayFrame()
 				R=glm::rotate(R,current->getRot().x,glm::vec3(1.0f,0.0f,0.0f));
 			if(current->getRot().y != 0.0f)
 				R=glm::rotate(R,current->getRot().y,glm::vec3(0.0f,1.0f,0.0f));
-			if(current->getRot().z != 0.0f)			
+			if(current->getRot().z != 0.0f)	
 				R=glm::rotate(R,current->getRot().z,glm::vec3(0.0f,0.0f,1.0f));
 			M=M*R*glm::translate(glm::mat4(1.0f),current->dropDelta());
 			current->setPos(glm::vec3(M[3][0],M[3][1],M[3][2]));
+			static bool was = false;
+			if(!was)
+			{
+				for(size_t i = 0; i < 4;i++)
+				{
+					for(size_t j = 0;j < 4;j++)
+					{
+						printf(" %f ",M[i][j]);
+					}
+					printf("\n");
+				}
+				was = true;
+			}
 			glLoadMatrixf(glm::value_ptr(V*M));
 			if(current->getMesh()->isTextured())
 			{
@@ -81,6 +100,10 @@ void Engine::displayFrame()
 			glVertexPointer(3,GL_FLOAT,0,current->getMesh()->getVertices());
 			glTexCoordPointer(2,GL_FLOAT,0,current->getMesh()->getTexCoords());
 			glNormalPointer(GL_FLOAT,0,current->getMesh()->getNormals());
+			glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR,  current->getMesh()->getMaterial()->getSpecular()->asFloatArray());
+			glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT,  current->getMesh()->getMaterial()->getAmbient()->asFloatArray());
+			glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,  current->getMesh()->getMaterial()->getDiffuse()->asFloatArray());
+			glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION,  (*(current->getMesh()->getMaterial()->getSpecular()) + *(current->getMesh()->getMaterial()->getAmbient()) + *(current->getMesh()->getMaterial()->getDiffuse())).asFloatArray() );
 			glDrawArrays(GL_TRIANGLES,0,current->getMesh()->getVertCount());
 			glDisableClientState(GL_VERTEX_ARRAY);
 			if(current->getMesh()->getNormals())
@@ -94,11 +117,12 @@ void Engine::displayFrame()
 
 void Engine::nextFrame()
 {
+	static bool done = false;
 	int actTime=glutGet(GLUT_ELAPSED_TIME);
 	int interval=actTime-instance.mLastTime;
 	instance.mLastTime=actTime;
 	instance.mDelta *= interval*0.02f; 
-	instance.findObject("box")->move(instance.mDelta);
+	instance.findObject("box")->translate(instance.mDelta);
 	glutPostRedisplay();
 }
 
@@ -131,9 +155,12 @@ bool Engine::init(int &arg_count,char * arg_val[])
 	glutSpecialUpFunc(Engine::keyUp);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
-	mRenderQueue.push_back(new Object("box",glm::vec3(0.0f,0.0f,0.0f),glm::vec3(120.0f,0.0f,0.0f),"box.obj","bricks.tga"));//adding objects to render queue. shouldn't be done that way and it's done like that only for test purposes
-	mRenderQueue.push_back(new Object("pacmate",glm::vec3(-1.0f,2.0f,0.0f),glm::vec3(0.0f,360.0f-45.0f,0.0f),"pac-man.obj","p_tex.tga"));	
+	glEnable(GL_LIGHTING);
+	mRenderQueue.push_back(new Object("box",glm::vec3(0.0f,0.0f,0.0f),glm::vec3(45.0f,0.0f,0.0f),"box.obj","bricks.tga"));//adding objects to render queue. shouldn't be done that way and it's done like that only for test purposes
+	mRenderQueue.push_back(new Object("pacmate",glm::vec3(-1.0f,1.0f,0.0f),glm::vec3(0.0f,360.0f-45.0f,0.0f),"pac-man.obj","p_tex.tga"));	
 	Object * ptr = findObject("pacmate");
+	float light[] = {1.0f,1.0f,1.0f,0.0f};
+	glLightfv(GL_LIGHT0,GL_DIFFUSE,light);
 	if(ptr)
 	{
 		printf("Found object: %s . Messing...\n",ptr->getName().c_str());

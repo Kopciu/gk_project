@@ -39,6 +39,11 @@ Mesh::~Mesh()
 		delete [] mTexCoords;
 }
 
+Material * Mesh::getMaterial()
+{
+	return &mMaterial;
+}
+
 bool Mesh::load(std::string name)//function that parses *.obj files (uses external library to do so)
 {
 	objLoader * temp = new objLoader();
@@ -71,6 +76,12 @@ bool Mesh::load(std::string name)//function that parses *.obj files (uses extern
 				mTexCoords[(i*6)+(j*2)+k] = temp->textureList[temp->faceList[i]->texture_index[j]]->e[k];
 			}
 		}
+	}
+	if(temp->materialCount)
+	{
+		*(mMaterial.getAmbient()) = Color(temp->materialList[0]->amb[0],temp->materialList[0]->amb[1],temp->materialList[0]->amb[2]);
+		*(mMaterial.getDiffuse()) = Color(temp->materialList[0]->diff[0],temp->materialList[0]->diff[1],temp->materialList[0]->diff[2]);
+		*(mMaterial.getSpecular()) = Color(temp->materialList[0]->spec[0],temp->materialList[0]->spec[1],temp->materialList[0]->spec[2]);
 	}
 	delete temp;
 	return true;
@@ -106,6 +117,7 @@ void Mesh::setTexture(std::string name)///COPYPASTA ! %-D
 	TGAImg img; 
 	if(img.Load((char *) name.c_str())==IMG_OK) 
 	{
+		mMaterial.setTextureName(name);
 		mTextured = true;
 		glGenTextures(1,&mTexture);
 		glBindTexture(GL_TEXTURE_2D,mTexture);

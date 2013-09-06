@@ -109,6 +109,7 @@
     <ClCompile Include="external\obj_parser.cpp" />
     <ClCompile Include="external\string_extra.cpp" />
     <ClCompile Include="main_file.cpp" />
+    <ClCompile Include="Material.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="tga.cpp" />
   </ItemGroup>
@@ -121,6 +122,7 @@
     <ClInclude Include="external\obj_parser.h" />
     <ClInclude Include="external\string_extra.h" />
     <ClInclude Include="headers.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="tga.h" />
   </ItemGroup>
