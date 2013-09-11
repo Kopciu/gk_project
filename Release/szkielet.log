@@ -1,24 +1,11 @@
-﻿Build started 2013-09-06 19:26:39.
+﻿Build started 2013-09-11 20:28:12.
      1>Project "C:\prywatne\C++\GK_1\szkielet\gk_project\szkielet.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHsc /MT /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt engine.cpp
-         engine.cpp
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(18): warning C4091: 'typedef ' : ignored on left of 'obj_face' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(27): warning C4091: 'typedef ' : ignored on left of 'obj_sphere' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(36): warning C4091: 'typedef ' : ignored on left of 'obj_plane' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(41): warning C4091: 'typedef ' : ignored on left of 'obj_vector' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(56): warning C4091: 'typedef ' : ignored on left of 'obj_material' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(63): warning C4091: 'typedef ' : ignored on left of 'obj_camera' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(69): warning C4091: 'typedef ' : ignored on left of 'obj_light_point' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(76): warning C4091: 'typedef ' : ignored on left of 'obj_light_disc' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(82): warning C4091: 'typedef ' : ignored on left of 'obj_light_quad' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(105): warning C4091: 'typedef ' : ignored on left of 'obj_growable_scene_data' when no variable is declared
-     1>c:\prywatne\c++\gk_1\szkielet\gk_project\external\obj_parser.h(138): warning C4091: 'typedef ' : ignored on left of 'obj_scene_data' when no variable is declared
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Release\szkielet.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Release\szkielet.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release\szkielet.lib" /MACHINE:X86 /SAFESEH OPENGL32.LIB GLU32.LIB glut32.lib glew32.lib
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Release\szkielet.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\..\..\SDL2-2.0.0\lib\x64\\" SDL2.lib SDL2main.lib SDL2test.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Release\szkielet.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release\szkielet.lib" /MACHINE:X86 /SAFESEH OPENGL32.LIB GLU32.LIB glut32.lib glew32.lib
           Release\Camera.obj
          Release\detailed_cube.obj
          Release\engine.obj
+         Release\HeightMap.obj
          Release\list.obj
          Release\objLoader.obj
          Release\obj_parser.obj
@@ -27,9 +14,13 @@
          Release\Material.obj
          Release\Object.obj
          Release\tga.obj
-         szkielet.vcxproj -> C:\prywatne\C++\GK_1\szkielet\gk_project\Release\szkielet.exe
-     1>Done Building Project "C:\prywatne\C++\GK_1\szkielet\gk_project\szkielet.vcxproj" (Build target(s)).
+     1>HeightMap.obj : error LNK2019: unresolved external symbol _SDL_RWFromFile referenced in function "public: bool __thiscall HeightMap::load(char const *)" (?load@HeightMap@@QAE_NPBD@Z)
+     1>HeightMap.obj : error LNK2019: unresolved external symbol _SDL_FreeSurface referenced in function "public: bool __thiscall HeightMap::load(char const *)" (?load@HeightMap@@QAE_NPBD@Z)
+     1>HeightMap.obj : error LNK2019: unresolved external symbol _SDL_LoadBMP_RW referenced in function "public: bool __thiscall HeightMap::load(char const *)" (?load@HeightMap@@QAE_NPBD@Z)
+     1>LIBCMT.lib(crt0.obj) : error LNK2019: unresolved external symbol _main referenced in function ___tmainCRTStartup
+     1>Release\szkielet.exe : fatal error LNK1120: 4 unresolved externals
+     1>Done Building Project "C:\prywatne\C++\GK_1\szkielet\gk_project\szkielet.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.72
+Time Elapsed 00:00:00.27

@@ -1,4 +1,5 @@
 #pragma once
+#undef main
 #include <windows.h>
 #include <vector>
 #include "gl\glew.h"
@@ -10,3 +11,4 @@
 #include "glm\gtc\type_ptr.hpp"
 #include "tga.h"
 #include "Material.h"
+#include "external\HeightMap.h"
